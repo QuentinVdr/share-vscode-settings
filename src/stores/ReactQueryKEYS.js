@@ -8,3 +8,10 @@ export const exempleQKey = {
   list: () => [exempleQKey.mainKey, 'list'],
   detail: (id) => [exempleQKey.mainKey, 'detail', id]
 };
+
+/** Exemple */
+export const extensionQKey = {
+  mainKey: 'extension',
+  list: () => [extensionQKey.mainKey, 'list'],
+  detail: (id) => [extensionQKey.mainKey, 'detail', id]
+};
