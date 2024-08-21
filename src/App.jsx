@@ -1,4 +1,5 @@
 import { AlertSnackbar } from '@components/global/AlertSnackbar/AlertSnackbar';
+import { ConfirmDialogProvider } from '@contexts/ConfirmDialogContext';
 import { ReactQueryProvider } from '@contexts/ReactQueryProvider';
 import { ThemeProvider } from '@emotion/react';
 import AuthProvider from '@hooks/contexts/useAuth';
@@ -25,11 +26,12 @@ export function App() {
 const AppProviders = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline>
-        <ReactQueryProvider>
+      <CssBaseline />
+      <ReactQueryProvider>
+        <ConfirmDialogProvider>
           <AuthProvider>{children}</AuthProvider>
-        </ReactQueryProvider>
-      </CssBaseline>
+        </ConfirmDialogProvider>
+      </ReactQueryProvider>
     </ThemeProvider>
   );
 };

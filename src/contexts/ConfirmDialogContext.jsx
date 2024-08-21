@@ -4,7 +4,7 @@ import { createContext, useState } from 'react';
 
 /** Define component props */
 ConfirmDialogProvider.propTypes = {
-  children: PropTypes.element.isRequired
+  children: PropTypes.node.isRequired
 };
 
 /**
@@ -29,7 +29,7 @@ export function ConfirmDialogProvider({ children }) {
       ...newDialogOptions
     });
     setOpen(true);
-    return new Promise()((resolve) => {
+    return new Promise((resolve) => {
       setConfirmDialogPromise(() => resolve);
     });
   };
@@ -72,4 +72,4 @@ export function ConfirmDialogProvider({ children }) {
   );
 }
 
-export const ConfirmDialogContext = createContext({});
+export const ConfirmDialogContext = createContext(null);

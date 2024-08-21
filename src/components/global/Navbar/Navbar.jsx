@@ -11,6 +11,7 @@ export default function Navbar() {
   const { isAuthenticated, logout } = useAuth();
   const { showInfo } = useSnackbarStore();
   const [anchorEl, setAnchorEl] = useState(null);
+  const isMenuOpen = Boolean(anchorEl);
 
   const handleOpenMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -36,7 +37,7 @@ export default function Navbar() {
     <AppBar className={styles.navbar} position="sticky">
       <Stack direction="row" gap={2} alignItems="center">
         <Link to="/" className={styles.logo}>
-          <Typography variant="h1">my-app</Typography>
+          <Typography variant="h1">Todo-app</Typography>
         </Link>
         <div className={styles.userMenu}>
           <IconButton
@@ -49,9 +50,9 @@ export default function Navbar() {
           >
             <AccountCircle />
           </IconButton>
-          <Menu id="menu-appbar" anchorEl={anchorEl} open={anchorEl} onClose={handleCloseMenu}>
+          <Menu id="menu-appbar" anchorEl={anchorEl} open={isMenuOpen} onClose={handleCloseMenu}>
             {isAuthenticated() ? (
-              <MenuItem onClick={handleLogout}>déconnecter</MenuItem>
+              <MenuItem onClick={handleLogout}>se déconnecter</MenuItem>
             ) : (
               <MenuItem onClick={handleLogin}>se connecter</MenuItem>
             )}

@@ -1,3 +1,4 @@
+import { useExtensionByIdQuery } from '@hooks/reactQuery/queries/useExtensionsQueries';
 import { Button, Stack, Typography } from '@mui/material';
 import { availableLanguages } from '@utils/constants/AvailableLanguages';
 import { useTranslation } from 'react-i18next';
@@ -7,6 +8,13 @@ import { useTranslation } from 'react-i18next';
  */
 export default function Home() {
   const { t, i18n } = useTranslation();
+  const { data, isLoading } = useExtensionByIdQuery('alefragnani.project-manager');
+
+  if (isLoading) {
+    return <Typography variant="h2">loading...</Typography>;
+  }
+
+  console.log('🚀 ~ Home ~ data:', data);
 
   /**
    * Handle the translation of our app by giving the corresponding language key
