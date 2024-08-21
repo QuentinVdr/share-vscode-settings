@@ -1,0 +1,14 @@
+{
+  "short_name": "my-app",
+  "name": "my-app",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "712x712"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff"
+}

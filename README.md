@@ -17,7 +17,7 @@ yarn install
 
 # ▶️ Run development server
 npm run dev
-pnpm run dev
+pnpm dev
 yarn dev
 ```
 
@@ -38,7 +38,6 @@ This project follows a specific structure for organization and ease of navigatio
   - 📁 `routes`: This directory contains the routes (react-router).
   - 📁 `stores`: This directory contains the store keys (react-query).
   - 📁 `styles`: This directory contains global styles (variables, theme, etc.).
-  - 📁 `translations`: This directory contains translations (i18n).
   - 📁 `utils`: This directory contains utilities (reusable functions, etc.).
   - 📄 `main.jsx`: This is the main project file and the entry point of the project.
 - 📄 `package.json`: This is the project configuration file.
