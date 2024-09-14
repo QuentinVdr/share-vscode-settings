@@ -2,7 +2,6 @@ import { AlertSnackbar } from '@components/global/AlertSnackbar/AlertSnackbar';
 import { ConfirmDialogProvider } from '@contexts/ConfirmDialogContext';
 import { ReactQueryProvider } from '@contexts/ReactQueryProvider';
 import { ThemeProvider } from '@emotion/react';
-import AuthProvider from '@hooks/contexts/useAuth';
 import { CssBaseline } from '@mui/material';
 import { AppRouter } from '@routes/AppRoutes';
 import { theme } from '@styles/theme';
@@ -28,9 +27,7 @@ const AppProviders = ({ children }) => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <ReactQueryProvider>
-        <ConfirmDialogProvider>
-          <AuthProvider>{children}</AuthProvider>
-        </ConfirmDialogProvider>
+        <ConfirmDialogProvider>{children}</ConfirmDialogProvider>
       </ReactQueryProvider>
     </ThemeProvider>
   );

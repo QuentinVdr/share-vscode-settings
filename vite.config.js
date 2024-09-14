@@ -4,6 +4,9 @@ import { defineConfig } from 'vite';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  define: {
+    'process.env': process.env
+  },
   resolve: {
     // Registering alias paths
     alias: {
@@ -16,7 +19,6 @@ export default defineConfig({
       '@routes': '/src/routes',
       '@stores': '/src/stores',
       '@styles': '/src/styles',
-      '@translations': '/src/translations',
       '@utils': '/src/utils'
     }
   }

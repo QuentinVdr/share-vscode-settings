@@ -44,20 +44,14 @@ This project follows a specific structure for organization and ease of navigatio
 
 ## Librairies
 
-### Technology stack :
+### Technology stack
 
 - Library/Framework JS : [React](https://reactjs.org/)
 - Langage : [JavaScript](https://developer.mozilla.org/fr/docs/Web/JavaScript)
-- Package Manager : [pnpm](https://pnpm.io/)
 - Builder : [Vite](https://vitejs.dev/)
 - Linter/Code formatter : [EsLint](https://eslint.org/) / [Prettier](https://prettier.io/)
 
-#### Librairie Majeur :
-
-Internalization :
-
-- [i18next](https://www.i18next.com/)
-- [React-i18next](https://react.i18next.com/)
+### Major Library
 
 Data management :
 
