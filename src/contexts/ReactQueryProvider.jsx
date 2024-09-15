@@ -8,8 +8,8 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: 0,
-      staleTime: 30 * 1000, // 30 seconds
-      cacheTime: 60 * 1000 // 1 minute
+      staleTime: 60 * 60 * 1000, // 1 hour
+      cacheTime: 60 * 60 * 1000 // 1 hour
     },
     mutations: {
       retry: 0
