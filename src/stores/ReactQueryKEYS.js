@@ -9,9 +9,14 @@ export const exempleQKey = {
   detail: (id) => [exempleQKey.mainKey, 'detail', id]
 };
 
-/** Exemple */
+/** Extension */
 export const extensionQKey = {
   mainKey: 'extension',
-  list: () => [extensionQKey.mainKey, 'list'],
   detail: (id) => [extensionQKey.mainKey, 'detail', id]
+};
+
+/** Pastebin */
+export const pastebinQKey = {
+  mainKey: 'pastebin',
+  detail: (id) => [pastebinQKey.mainKey, 'detail', id]
 };

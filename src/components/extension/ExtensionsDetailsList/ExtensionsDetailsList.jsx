@@ -1,11 +1,13 @@
+import { useCreatePastebinMutations } from '@hooks/reactQuery/mutation/usePastebinMutations';
 import { useExtensionByIdsQueries } from '@hooks/reactQuery/queries/useExtensionsQueries';
-import { Stack, Typography } from '@mui/material';
+import { Button, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import { useExtensionStore } from '@stores/extension/extensionStore';
 import { useSnackbarStore } from '@stores/SnackbarStore';
 import { ExtensionDetailCard } from '../ExtensionDetailCard/ExtensionDetailCard';
 
 export default function ExtensionsDetailsList() {
+  const { mutateAsync } = useCreatePastebinMutations();
   const { showError } = useSnackbarStore();
   const { extensionsIds } = useExtensionStore();
   const extensionsQueries = useExtensionByIdsQueries(extensionsIds, {
@@ -14,9 +16,20 @@ export default function ExtensionsDetailsList() {
     }
   });
 
+  const handleShareList = () => {
+    mutateAsync(extensionsIds).then((pastebin) => {
+      console.log(pastebin);
+    });
+  };
+
   return (
     <Stack direction="column" gap={4}>
-      <Typography variant="h1">Extension details</Typography>
+      <Stack direction="row" justifyContent="space-between" alignItems="center">
+        <Typography variant="h1">Extension details</Typography>
+        <Button variant="outlined" onClick={handleShareList}>
+          Share list
+        </Button>
+      </Stack>
       <Grid container spacing={2}>
         {extensionsQueries.map((query, index) => (
           <Grid key={extensionsIds[index]} size={{ xs: 12, md: 6, xl: 4 }}>
