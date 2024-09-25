@@ -15,8 +15,8 @@ export const extensionQKey = {
   detail: (id) => [extensionQKey.mainKey, 'detail', id]
 };
 
-/** Pastebin */
-export const pastebinQKey = {
-  mainKey: 'pastebin',
-  detail: (id) => [pastebinQKey.mainKey, 'detail', id]
+/** VscodeConfig */
+export const vscodeConfigQKey = {
+  mainKey: 'vscode-config',
+  detail: (id) => [vscodeConfigQKey.mainKey, 'detail', id]
 };

@@ -1,4 +1,4 @@
-import { useCreatePastebinMutations } from '@hooks/reactQuery/mutation/usePastebinMutations';
+import { useCreateVscodeConfigMutations } from '@hooks/reactQuery/mutation/useVscodeConfigMutations';
 import { useExtensionByIdsQueries } from '@hooks/reactQuery/queries/useExtensionsQueries';
 import { Button, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
@@ -7,7 +7,7 @@ import { useSnackbarStore } from '@stores/SnackbarStore';
 import { ExtensionDetailCard } from '../ExtensionDetailCard/ExtensionDetailCard';
 
 export default function ExtensionsDetailsList() {
-  const { mutateAsync } = useCreatePastebinMutations();
+  const { mutateAsync } = useCreateVscodeConfigMutations();
   const { showError } = useSnackbarStore();
   const { extensionsIds } = useExtensionStore();
   const extensionsQueries = useExtensionByIdsQueries(extensionsIds, {
@@ -17,8 +17,8 @@ export default function ExtensionsDetailsList() {
   });
 
   const handleShareList = () => {
-    mutateAsync(extensionsIds).then((pastebin) => {
-      console.log(pastebin);
+    mutateAsync(extensionsIds).then((result) => {
+      console.log('🚀 ~ mutateAsync ~ result:', result);
     });
   };
 

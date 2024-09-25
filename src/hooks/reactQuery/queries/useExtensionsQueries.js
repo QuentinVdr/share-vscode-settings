@@ -1,4 +1,4 @@
-import { findExtensionDetailById } from '@api/ExtensionApi';
+import { findExtensionDetailById } from '@api/marketplace/ExtensionApi';
 import { extensionQKey } from '@stores/ReactQueryKEYS';
 import { useQueries, useQuery } from '@tanstack/react-query';
 
