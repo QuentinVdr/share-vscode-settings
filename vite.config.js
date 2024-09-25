@@ -4,6 +4,12 @@ import { defineConfig } from 'vite';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  server: {
+    watch: {
+      usePolling: true, // Enable polling instead of native file watching
+      interval: 100 // Optional: adjust the polling interval (in milliseconds)
+    }
+  },
   resolve: {
     // Registering alias paths
     alias: {

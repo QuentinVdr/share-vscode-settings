@@ -4,14 +4,14 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function ExtensionsDetail() {
-  const { extensionsIds } = useExtensionStore();
+  const { extensionIds } = useExtensionStore();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (extensionsIds.length === 0) {
+    if (extensionIds.length === 0) {
       navigate('/');
     }
-  }, [extensionsIds]);
+  }, [extensionIds]);
 
   return <ExtensionsDetailsList />;
 }

@@ -7,14 +7,14 @@ import { useNavigate } from 'react-router-dom';
 
 export default function ExtensionsInput() {
   const [extensions, setExtensions] = useState('');
-  const { setExtensionsIds } = useExtensionStore();
+  const { setExtensionIds } = useExtensionStore();
   const { showInfo, showError } = useSnackbarStore();
   const navigate = useNavigate();
 
   const onFetchClick = () => {
     const { extensionIds, extensionValid } = validateExtensionIds(extensions);
     if (extensionValid) {
-      setExtensionsIds(extensionIds);
+      setExtensionIds(extensionIds);
       showInfo({ message: 'Fetching details for the provided extensions' });
       navigate('/extensions-detail');
     } else {

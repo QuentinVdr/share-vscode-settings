@@ -9,15 +9,15 @@ import { ExtensionDetailCard } from '../ExtensionDetailCard/ExtensionDetailCard'
 export default function ExtensionsDetailsList() {
   const { mutateAsync } = useCreateVscodeConfigMutations();
   const { showError } = useSnackbarStore();
-  const { extensionsIds } = useExtensionStore();
-  const extensionsQueries = useExtensionByIdsQueries(extensionsIds, {
+  const { extensionIds } = useExtensionStore();
+  const extensionsQueries = useExtensionByIdsQueries(extensionIds, {
     onError: () => {
       showError({ message: 'Failed to fetch extension details' });
     }
   });
 
   const handleShareList = () => {
-    mutateAsync(extensionsIds).then((result) => {
+    mutateAsync({ extensionIds }).then((result) => {
       console.log('🚀 ~ mutateAsync ~ result:', result);
     });
   };
@@ -32,8 +32,8 @@ export default function ExtensionsDetailsList() {
       </Stack>
       <Grid container spacing={2}>
         {extensionsQueries.map((query, index) => (
-          <Grid key={extensionsIds[index]} size={{ xs: 12, md: 6, xl: 4 }}>
-            <ExtensionDetailCard extensionId={extensionsIds[index]} extensionQuery={query} />
+          <Grid key={extensionIds[index]} size={{ xs: 12, md: 6, xl: 4 }}>
+            <ExtensionDetailCard extensionId={extensionIds[index]} extensionQuery={query} />
           </Grid>
         ))}
       </Grid>

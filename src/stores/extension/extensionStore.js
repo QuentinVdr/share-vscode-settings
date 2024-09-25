@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
 export const useExtensionStore = create((set) => ({
-  extensionsIds: [],
-  setExtensionsIds: (extensionsIds) => set({ extensionsIds: extensionsIds })
+  extensionIds: [],
+  setExtensionIds: (extensionIds) => set({ extensionIds: extensionIds })
 }));
