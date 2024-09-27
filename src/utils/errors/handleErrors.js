@@ -10,8 +10,6 @@ const handleErrors = (error) => {
   const { showError } = useSnackbarStore.getState();
   if (!error.response) {
     showError({ message: 'No response from the server', duration: 'normal' });
-  } else if (error.response.data) {
-    showError({ message: 'An error append ask some administrator of the application', duration: 'normal' });
   } else {
     console.error(error);
   }

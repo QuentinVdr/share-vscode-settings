@@ -3,18 +3,12 @@ import { useExtensionByIdsQueries } from '@hooks/reactQuery/queries/useExtension
 import { Button, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import { useExtensionStore } from '@stores/extension/extensionStore';
-import { useSnackbarStore } from '@stores/SnackbarStore';
 import { ExtensionDetailCard } from '../ExtensionDetailCard/ExtensionDetailCard';
 
 export default function ExtensionsDetailsList() {
   const { mutateAsync } = useCreateVscodeConfigMutations();
-  const { showError } = useSnackbarStore();
   const { extensionIds } = useExtensionStore();
-  const extensionsQueries = useExtensionByIdsQueries(extensionIds, {
-    onError: () => {
-      showError({ message: 'Failed to fetch extension details' });
-    }
-  });
+  const extensionsQueries = useExtensionByIdsQueries(extensionIds);
 
   const handleShareList = () => {
     mutateAsync({ extensionIds }).then((result) => {

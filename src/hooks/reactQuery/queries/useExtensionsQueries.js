@@ -15,10 +15,7 @@ export const useExtensionByIdsQueries = (ids, options) =>
       return {
         ...options,
         queryKey: extensionQKey.detail(id),
-        queryFn: () => findExtensionDetailById(id),
-        onError: (error) => {
-          console.error(`Failed to fetch extension details for id: ${id}`, error);
-        }
+        queryFn: () => findExtensionDetailById(id)
       };
     })
   });

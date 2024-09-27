@@ -1,3 +1,4 @@
+import ErrorIcon from '@mui/icons-material/Error';
 import {
   Avatar,
   Button,
@@ -19,7 +20,18 @@ export const ExtensionDetailCard = ({ extensionId, extensionQuery }) => {
   }
 
   if (error) {
-    return <></>;
+    return (
+      <Card>
+        <CardContent>
+          <Typography variant="h5" display="flex" alignItems="center" gap={0.5} color="error" fontWeight="bold">
+            <ErrorIcon color="error" /> Error
+          </Typography>
+          <Typography variant="body1">
+            Can&apos;t fetch extension information of : <Typography variant="caption">{extensionId}</Typography>
+          </Typography>
+        </CardContent>
+      </Card>
+    );
   }
 
   return (
