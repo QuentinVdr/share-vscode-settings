@@ -15,8 +15,13 @@ ConfirmDialogProvider.propTypes = {
 export function ConfirmDialogProvider({ children }) {
   const [open, setOpen] = useState(false);
 
-  const [dialogOptions, setDialogOptions] = useState();
-  const [confirmDialogPromise, setConfirmDialogPromise] = useState(() => '');
+  const [dialogOptions, setDialogOptions] = useState({
+    title: '',
+    description: '',
+    agreeMessage: '',
+    disagreeMessage: ''
+  });
+  const [confirmDialogPromise, setConfirmDialogPromise] = useState(() => null);
 
   /**
    * Opens the confirm dialog with the specified parameter
@@ -60,10 +65,10 @@ export function ConfirmDialogProvider({ children }) {
       {children}
       {open && dialogOptions && (
         <ConfirmDialog
-          titleKey={dialogOptions.titleKey}
-          descriptionKey={dialogOptions.descriptionKey}
-          agreeMessageKey={dialogOptions.agreeMessageKey}
-          disagreeMessageKey={dialogOptions.disagreeMessageKey}
+          title={dialogOptions.title}
+          description={dialogOptions.description}
+          agreeMessage={dialogOptions.agreeMessage}
+          disagreeMessage={dialogOptions.disagreeMessage}
           onAccept={onAccept}
           onRefuse={onRefuse}
         />
