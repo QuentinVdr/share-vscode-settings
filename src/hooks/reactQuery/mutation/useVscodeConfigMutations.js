@@ -12,3 +12,14 @@ export const useCreateVscodeConfigMutations = () => {
     }
   });
 };
+
+export const useCreateVscodeConfigMutationsMock = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (data) => Promise.resolve({ _id: '123', extensionIds: data }),
+    onSuccess: (savedVscodeConfig) => {
+      queryClient.setQueryData(vscodeConfigQKey.detail(savedVscodeConfig._id), savedVscodeConfig);
+    }
+  });
+};
