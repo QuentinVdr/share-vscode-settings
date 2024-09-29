@@ -7,17 +7,19 @@ import { useState } from 'react';
 
 export default function ExtensionsSaveDialog({ open, handleClose }) {
   const { showSuccess, showError } = useSnackbarStore();
-  const mutation = useCreateVscodeConfigMutationsMock();
+  const mutation = useCreateVscodeConfigMutationsMock({
+    onSuccess: (result) => {
+      setExtensionListId(result._id);
+    },
+    onError: () => {
+      showError({ message: 'Failed to save the extension list', duration: 'normal' });
+    }
+  });
   const { extensionIds } = useExtensionStore();
   const [extensionListId, setExtensionListId] = useState('');
 
   const saveExtension = () => {
-    mutation
-      .mutateAsync(extensionIds)
-      .then((result) => setExtensionListId(result._id))
-      .catch(() => {
-        showError({ message: 'Failed to save the extension list', duration: 'normal' });
-      });
+    mutation.mutateAsync(extensionIds);
   };
 
   const sharedListSave = () => {
