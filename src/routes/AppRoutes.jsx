@@ -1,4 +1,4 @@
-import ExtensionsDetail from '@pages/ExtensionsDetail/ExtensionsDetail';
+import ExtensionDetails from '@pages/ExtensionDetails/ExtensionDetails';
 import Home from '@pages/Home/Home';
 import { NotFound } from '@pages/NotFound/NotFound';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
@@ -13,7 +13,7 @@ export const AppRouter = () => (
       createRoutesFromElements(
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/extensions-detail" element={<ExtensionsDetail />} />
+          <Route path="/extension-details" element={<ExtensionDetails />} />
           <Route path="/not-found" element={<NotFound />} />
           {/** Unknown path redirection */}
           <Route path="*" element={<NotFound />} />

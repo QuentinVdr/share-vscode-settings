@@ -23,7 +23,7 @@ export default function ExtensionsSaveDialog({ open, handleClose }) {
   };
 
   const sharedListSave = () => {
-    const link = `${window.location.origin}/extensions-detail/${extensionListId}`;
+    const link = `${window.location.origin}/extension-details/${extensionListId}`;
     navigator.clipboard.writeText(link);
     showSuccess({
       message: `Link copied to clipboard: ${link}`,

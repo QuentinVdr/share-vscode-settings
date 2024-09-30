@@ -3,7 +3,7 @@ import { useExtensionStore } from '@stores/extension/extensionStore';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function ExtensionsDetail() {
+export default function ExtensionDetails() {
   const { extensionIds } = useExtensionStore();
   const navigate = useNavigate();
 

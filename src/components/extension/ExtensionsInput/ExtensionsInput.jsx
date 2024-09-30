@@ -6,17 +6,17 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function ExtensionsInput() {
-  const [extensions, setExtensions] = useState('');
-  const { setExtensionIds } = useExtensionStore();
+  const { extensionIds, setExtensionIds } = useExtensionStore();
   const { showInfo, showError } = useSnackbarStore();
   const navigate = useNavigate();
+  const [extensions, setExtensions] = useState(extensionIds.join('\n') || '');
 
   const onFetchClick = () => {
-    const { extensionIds, extensionValid } = validateExtensionIds(extensions);
+    const { extensionIds: validExtensionIds, extensionValid } = validateExtensionIds(extensions.trim());
     if (extensionValid) {
-      setExtensionIds(extensionIds);
+      setExtensionIds(validExtensionIds);
       showInfo({ message: 'Fetching details for the provided extensions' });
-      navigate('/extensions-detail');
+      navigate('/extension-details');
     } else {
       showError({ message: 'Invalid extension ids' });
     }
@@ -38,7 +38,7 @@ VisualStudioExptTeam.vscodeintellicode"
         }}
       />
       <Button variant="contained" onClick={onFetchClick}>
-        Fetch details
+        View details
       </Button>
     </Stack>
   );

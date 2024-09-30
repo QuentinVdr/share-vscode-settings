@@ -6,7 +6,7 @@ import { Stack, Typography } from '@mui/material';
  */
 export default function Home() {
   return (
-    <Stack direction="column" gap={4}>
+    <Stack direction="column" gap={3}>
       <Typography variant="h2">Welcome</Typography>
       <ExtensionsInput />
     </Stack>
