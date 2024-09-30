@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 
 export default function ExtensionDetails() {
   const { extensionIds } = useExtensionStore();
-  console.log('🚀 ~ ExtensionDetails ~ extensionIds:', extensionIds);
   const navigate = useNavigate();
 
   useEffect(() => {
