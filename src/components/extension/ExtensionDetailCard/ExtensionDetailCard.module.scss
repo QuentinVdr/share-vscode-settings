@@ -1,0 +1,16 @@
+@use '@styles/colors.module.scss' as colors;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  &.selected {
+    border: 1px solid colors.$primary;
+  }
+
+  &.cardError {
+    border: 1px solid colors.$mui-error-main;
+  }
+}

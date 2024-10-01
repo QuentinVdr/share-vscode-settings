@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import styles from './ExtensionDetailCard.module.scss';
 
 export const ExtensionDetailCard = ({ extensionId, extensionQuery }) => {
   const { data, isLoading, error } = extensionQuery;
@@ -21,7 +22,7 @@ export const ExtensionDetailCard = ({ extensionId, extensionQuery }) => {
 
   if (error) {
     return (
-      <Card>
+      <Card className={`${styles.card} ${styles.cardError}`}>
         <CardContent>
           <Typography variant="h5" display="flex" alignItems="center" gap={0.5} color="error" fontWeight="bold">
             <ErrorIcon color="error" /> Error
@@ -35,7 +36,7 @@ export const ExtensionDetailCard = ({ extensionId, extensionQuery }) => {
   }
 
   return (
-    <Card>
+    <Card className={`${styles.card} ${styles.selected}`}>
       <CardHeader
         avatar={<Avatar src={data.imageSrc} alt={data.imageAlt} />}
         title={data.name}
