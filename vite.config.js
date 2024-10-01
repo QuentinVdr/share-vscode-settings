@@ -23,6 +23,7 @@ export default defineConfig({
   resolve: {
     // Registering alias paths
     alias: {
+      '@': '/src',
       '@api': '/src/api',
       '@assets': '/public/assets',
       '@components': '/src/components',
