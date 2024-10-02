@@ -1,14 +1,5 @@
 import ErrorIcon from '@mui/icons-material/Error';
-import {
-  Avatar,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CircularProgress,
-  Typography
-} from '@mui/material';
+import { Button, Card, CardActions, CircularProgress, Stack, Typography } from '@mui/material';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './ExtensionDetailCard.module.scss';
@@ -23,28 +14,34 @@ export const ExtensionDetailCard = ({ extensionId, extensionQuery }) => {
   if (error) {
     return (
       <Card className={`${styles.card} ${styles.cardError}`}>
-        <CardContent>
-          <Typography variant="h5" display="flex" alignItems="center" gap={0.5} color="error" fontWeight="bold">
-            <ErrorIcon color="error" /> Error
+        <Stack className={styles.cardContent} gap={2}>
+          <Typography variant="h5" display="flex" alignItems="center" gap={0.5} color="error" fontWeight="medium">
+            <ErrorIcon color="error" fontSize="large" /> Error
           </Typography>
           <Typography variant="body1">
             Can&apos;t fetch extension information of : <Typography variant="caption">{extensionId}</Typography>
           </Typography>
-        </CardContent>
+        </Stack>
       </Card>
     );
   }
 
   return (
-    <Card className={`${styles.card} ${styles.selected}`}>
-      <CardHeader
-        avatar={<Avatar src={data.imageSrc} alt={data.imageAlt} />}
-        title={data.name}
-        subheader={data.publisher}
-      />
-      <CardContent>
-        <Typography variant="body1">{data.description}</Typography>
-      </CardContent>
+    <Card className={`${styles.card}`}>
+      <Stack className={styles.cardContent} gap={2}>
+        <Stack direction="row" gap={2} alignItems="center">
+          <img className={styles.cardLogo} src={data.imageSrc} alt={data.imageAlt} width={52} height={52} />
+          <Stack direction="column">
+            <Typography variant="h5">{data.name}</Typography>
+            <Typography className={styles.cardSubtitle} variant="subtitle1">
+              {data.publisher}
+            </Typography>
+          </Stack>
+        </Stack>
+        <Typography variant="body1" alignSelf="start">
+          {data.description}
+        </Typography>
+      </Stack>
       <CardActions>
         <Link
           to={`${import.meta.env.VITE_MARKETPLACE_URL}/items?itemName=${extensionId}`}

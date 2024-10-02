@@ -6,11 +6,27 @@
   justify-content: space-between;
   height: 100%;
 
+  .cardContent {
+    padding: 18px;
+    height: 100%;
+
+    .cardLogo {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .cardSubtitle {
+      color: colors.$grey-text;
+    }
+  }
+
   &.selected {
     border: 1px solid colors.$primary;
   }
 
   &.cardError {
-    border: 1px solid colors.$mui-error-main;
+    background-color: colors.$alert-error-bg;
   }
 }

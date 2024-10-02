@@ -111,31 +111,31 @@ export const theme = createTheme({
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
-    fontWeightBold: 500,
+    fontWeightBold: 600,
     h1: {
-      fontWeight: 500,
+      fontWeight: 600,
       fontSize: '2.125rem',
       letterSpacing: '1px'
     },
     h2: {
-      fontWeight: 400,
+      fontWeight: 500,
       fontSize: '2rem',
       letterSpacing: '-0.5px'
     },
     h3: {
-      fontWeight: 400,
+      fontWeight: 500,
       fontSize: '1.875rem'
     },
     h4: {
-      fontWeight: 300,
+      fontWeight: 500,
       fontSize: '1.625rem'
     },
     h5: {
-      fontWeight: 300,
+      fontWeight: 500,
       fontSize: '1.375rem'
     },
     h6: {
-      fontWeight: 300
+      fontWeight: 400
     },
     button: {
       fontWeight: 500,
