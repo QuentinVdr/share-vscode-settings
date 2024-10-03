@@ -15,6 +15,9 @@ export default defineConfig({
   },
   // for development on linux
   server: {
+    host: true,
+    strictPort: true,
+    port: 5173,
     watch: {
       usePolling: true, // Enable polling instead of native file watching
       interval: 100 // Optional: adjust the polling interval (in milliseconds)
