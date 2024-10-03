@@ -1,4 +1,4 @@
-import { useCreateVscodeConfigMutationsMock } from '@hooks/reactQuery/mutation/useVscodeConfigMutations';
+import { useCreateVscodeConfigMutations } from '@/hooks/reactQuery/mutation/useVscodeConfigMutations';
 import { Button, CircularProgress, Dialog, DialogActions, DialogContent, DialogTitle, Typography } from '@mui/material';
 import { useExtensionStore } from '@stores/extension/extensionStore';
 import { useSnackbarStore } from '@stores/SnackbarStore';
@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 export default function ExtensionsSaveDialog({ open, handleClose }) {
   const { showSuccess, showError } = useSnackbarStore();
-  const mutation = useCreateVscodeConfigMutationsMock({
+  const mutation = useCreateVscodeConfigMutations({
     onSuccess: (result) => {
       setExtensionListId(result._id);
     },

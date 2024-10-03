@@ -1,11 +1,11 @@
+import { useVscodeConfigByIdQuery } from '@/hooks/reactQuery/queries/useVscodeConfigQueries';
 import ExtensionsDetailsList from '@components/extension/ExtensionsDetailsList/ExtensionsDetailsList';
-import { useVscodeConfigByIdQueryMock } from '@hooks/reactQuery/queries/useVscodeConfigQueries';
 import { CircularProgress, Stack, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
 
 export default function SavedExtensionDetails() {
   const { id } = useParams();
-  const { data, isError, isLoading } = useVscodeConfigByIdQueryMock(id);
+  const { data, isError, isLoading } = useVscodeConfigByIdQuery(id);
 
   return (
     <Stack direction="column" gap={3}>
