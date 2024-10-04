@@ -8,7 +8,10 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
-  transition: opacity, z-index, color ease-in-out 0.3s;
+  transition:
+    opacity,
+    z-index,
+    color ease-in-out 0.3s;
 }
 
 body {
@@ -19,6 +22,7 @@ body {
   font-family: fonts.$font-family;
   clear: both;
   margin: 0;
+  color: colors.$default-font;
   // to avoid the problem that the scrollbar
   // will push the content to the left when we click on select
   padding: 0 !important;
