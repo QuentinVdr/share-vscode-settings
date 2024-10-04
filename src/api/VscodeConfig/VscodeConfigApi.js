@@ -19,4 +19,4 @@ export const createVscodeConfig = (data) => ApiHttpClient.post(baseURL, data).th
  * @param {string} id - The unique identifier for the configuration.
  * @returns {Promise<{_id: string, extensionIds: string[], createdAt: Date}>} The configuration data.
  */
-export const findVscodeConfigById = (id) => ApiHttpClient.get(`/${id}`).then((res) => res.data);
+export const findVscodeConfigById = (id) => ApiHttpClient.get(`${baseURL}/${id}`).then((res) => res.data);

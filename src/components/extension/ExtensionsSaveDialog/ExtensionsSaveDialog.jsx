@@ -19,7 +19,7 @@ export default function ExtensionsSaveDialog({ open, handleClose }) {
   const [extensionListId, setExtensionListId] = useState('');
 
   const saveExtension = () => {
-    mutation.mutateAsync(extensionIds);
+    mutation.mutateAsync({ extensionIds });
   };
 
   const sharedListSave = () => {
