@@ -5,6 +5,8 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  border: 1px solid colors.$white-background;
+  cursor: pointer;
 
   .cardContent {
     padding: 18px;

@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './ExtensionDetailCard.module.scss';
 
-export const ExtensionDetailCard = ({ extensionId, extensionQuery }) => {
+export const ExtensionDetailCard = ({ extensionId, extensionQuery, selected }) => {
   const { data, isLoading, error } = extensionQuery;
+  const className = selected ? `${styles.card} ${styles.selected}` : styles.card;
 
   if (isLoading) {
     return <CircularProgress className="loader" />;
@@ -13,7 +14,7 @@ export const ExtensionDetailCard = ({ extensionId, extensionQuery }) => {
 
   if (error) {
     return (
-      <Card className={`${styles.card} ${styles.cardError}`}>
+      <Card className={`${className} ${styles.cardError}`}>
         <Stack className={styles.cardContent} gap={2}>
           <Typography variant="h5" display="flex" alignItems="center" gap={0.5} color="error" fontWeight="medium">
             <ErrorIcon color="error" fontSize="large" /> Error
@@ -27,7 +28,7 @@ export const ExtensionDetailCard = ({ extensionId, extensionQuery }) => {
   }
 
   return (
-    <Card className={`${styles.card}`}>
+    <Card className={className}>
       <Stack className={styles.cardContent} gap={2}>
         <Stack direction="row" gap={2} alignItems="center">
           <img className={styles.cardLogo} src={data.imageSrc} alt={data.imageAlt} width={52} height={52} />
@@ -57,5 +58,6 @@ export const ExtensionDetailCard = ({ extensionId, extensionQuery }) => {
 
 ExtensionDetailCard.propTypes = {
   extensionId: PropTypes.string.isRequired,
-  extensionQuery: PropTypes.object.isRequired
+  extensionQuery: PropTypes.object.isRequired,
+  selected: PropTypes.bool.isRequired
 };
