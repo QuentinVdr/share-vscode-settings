@@ -1,22 +1,32 @@
 {
   "compilerOptions": {
-    "checkJs": true, // Enable error reporting in type-checked JavaScript files.
-    "allowJs": true, // Allow JavaScript files to be compiled.
-    "jsx": "react-jsx", // Will warn if a module can't be correctly interpreted by a single-file transpilation process
-    "forceConsistentCasingInFileNames": true, // Force to import the file by taking into account the case sensitive
-    "isolatedModules": true, // Unconditionally emit imports for unresolved files
-    "esModuleInterop": true, // Emit additional JavaScript to ease support for importing CommonJS modules
-    "allowSyntheticDefaultImports": true, // Allow default imports from modules with no default export
-    "noFallthroughCasesInSwitch": true, // Report errors for fallthrough cases in switch statements
-    "moduleResolution": "node", // Use Node.js style module resolution
-    "resolveJsonModule": true, // Include modules imported with .json extension
-    "noEmit": true, // Don't emit output files
-    "module": "EsNext", // Specify module code generation
-    "target": "EsNext", // Specify ECMAScript target version
-    "lib": ["DOM", "DOM.Iterable", "ESNext"], // Specify library files to be included in the compilation
-    "skipLibCheck": true, // Skip type checking of declaration files
+    // JavaScript and TypeScript Compilation
+    "allowJs": true,
+    "checkJs": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+
+    // Module Handling
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+
+    // Strict Checking and Error Reporting
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "useUnknownInCatchVariables": true,
+
+    // Build Configuration
+    "noEmit": true,
+    "skipLibCheck": true,
+
+    // Path Aliases
     "baseUrl": ".",
-    // Path aliases configuration (don't forget to also configure Vite with these)/
     "paths": {
       "@/*": ["src/*"],
       "@api/*": ["src/api/*"],
@@ -31,6 +41,6 @@
       "@utils/*": ["src/utils/*"]
     }
   },
-  "include": ["src", ".eslintrc.json"],
-  "exclude": ["node_modules", "build", ".vscode", ".git", "dist"]
+  "include": ["src/**/*", ".eslintrc.json", "vite.config.js", "src/styles/**/*.scss"],
+  "exclude": ["node_modules", "dist"]
 }
