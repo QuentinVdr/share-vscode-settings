@@ -2,6 +2,8 @@ $primary: #2563eb;
 $primary-light: #60a5fa;
 $primary-dark: #1e40af;
 
+$secondary: #ffffff;
+
 $white-background: #ffffff;
 $app-background: #f5f5f5;
 $grey-background: #c2c2c2;
@@ -39,6 +41,8 @@ $alert-error-icon: $mui-error-main;
   primary: $primary;
   primaryLight: $primary-light;
   primaryDark: $primary-dark;
+
+  secondary: $secondary;
 
   defaultFont: $default-font;
   greyText: $grey-text;

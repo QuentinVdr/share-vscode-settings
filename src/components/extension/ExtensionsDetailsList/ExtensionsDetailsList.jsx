@@ -2,13 +2,14 @@ import { useExtensionByIdsQueries } from '@hooks/reactQuery/queries/useExtension
 import { Button, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ExtensionDetailCard } from '../ExtensionDetailCard/ExtensionDetailCard';
 import styles from './ExtensionsDetailsList.module.scss';
 
 export default function ExtensionsDetailsList({ extensionIds }) {
   const extensionsQueries = useExtensionByIdsQueries(extensionIds);
   const [selectedExtensionIds, setSelectedExtensionIds] = useState([]);
+  const [showBar, setShowBar] = useState(false);
 
   const isSelected = (extensionId) => selectedExtensionIds.find((id) => id === extensionId);
 
@@ -23,6 +24,15 @@ export default function ExtensionsDetailsList({ extensionIds }) {
   const handleInstallClick = () => {
     console.log('installing extensions', selectedExtensionIds);
   };
+
+  useEffect(() => {
+    if (selectedExtensionIds.length > 0) {
+      setShowBar(true);
+    } else {
+      const timer = setTimeout(() => setShowBar(false), 500); // Wait for slideOut animation to complete
+      return () => clearTimeout(timer);
+    }
+  }, [selectedExtensionIds]);
 
   return (
     <Stack direction="column" gap={2}>
@@ -42,16 +52,23 @@ export default function ExtensionsDetailsList({ extensionIds }) {
           </Grid>
         ))}
       </Grid>
-      <Stack direction="row" className={styles.selectedExtensionsBar}>
-        <Typography variant="body1">
-          <Typography variant="caption">{selectedExtensionIds.length}</Typography> extension selected
-        </Typography>
-        {selectedExtensionIds.length > 0 && (
-          <Button variant="contained" size="small" onClick={handleInstallClick}>
+      {showBar && (
+        <Stack
+          direction="row"
+          gap={2}
+          className={`${styles.selectedExtensionsBar} ${selectedExtensionIds.length === 0 && styles.hide}`}
+        >
+          <Typography variant="body1" className={styles.selectedExtensionText}>
+            <Typography variant="caption" className={styles.selectedExtensionCount}>
+              {selectedExtensionIds.length}
+            </Typography>{' '}
+            extension selected
+          </Typography>
+          <Button variant="outlined" size="small" color="secondary" onClick={handleInstallClick}>
             install
           </Button>
-        )}
-      </Stack>
+        </Stack>
+      )}
     </Stack>
   );
 }
