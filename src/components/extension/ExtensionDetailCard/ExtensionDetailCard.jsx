@@ -1,5 +1,6 @@
 import ErrorIcon from '@mui/icons-material/Error';
 import { Button, Card, CardActions, CircularProgress, Stack, Typography } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './ExtensionDetailCard.module.scss';
@@ -9,7 +10,11 @@ export const ExtensionDetailCard = ({ extensionId, extensionQuery, selected }) =
   const className = selected ? `${styles.card} ${styles.selected}` : styles.card;
 
   if (isLoading) {
-    return <CircularProgress className="loader" />;
+    return (
+      <Grid className={styles.extensionLoader}>
+        <CircularProgress />
+      </Grid>
+    );
   }
 
   if (error) {

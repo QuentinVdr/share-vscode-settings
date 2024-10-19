@@ -1,5 +1,12 @@
 @use '@styles/colors.module.scss' as colors;
 
+.extensionLoader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .card {
   display: flex;
   flex-direction: column;
