@@ -81,11 +81,22 @@ export const theme = createTheme({
           }
         }
       }
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          backgroundColor: colors.whiteBackground,
+          borderRadius: '8px'
+        }
+      }
     }
   },
   palette: {
     primary: {
       main: colors.primary
+    },
+    secondary: {
+      main: colors.secondary
     },
     warning: {
       main: colors.muiWarningMain

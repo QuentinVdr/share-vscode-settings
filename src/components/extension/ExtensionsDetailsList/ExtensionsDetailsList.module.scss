@@ -1,0 +1,51 @@
+@use '@styles/colors.module.scss' as colors;
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.selectedExtensionsBar {
+  position: fixed;
+  bottom: 16px;
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 24px;
+  background-color: rgba(colors.$primary, 0.92);
+  animation: slideIn 0.2s forwards;
+
+  &.hide {
+    animation: slideOut 0.2s forwards;
+  }
+
+  .selectedExtensionText {
+    color: colors.$secondary;
+    font-size: 1rem;
+    font-weight: 400;
+
+    .selectedExtensionCount {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+  }
+}
