@@ -51,7 +51,7 @@ export const AlertSnackbar = () => {
       open={isSnackbarOpen}
       autoHideDuration={currentSnackbar.autoHideDuration}
       onClose={handleClose}
-      anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
       TransitionComponent={SlideUp}
       TransitionProps={{ onExited: handleExit }}
       disableWindowBlurListener={true}
