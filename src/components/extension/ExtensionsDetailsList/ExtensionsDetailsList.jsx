@@ -3,13 +3,15 @@ import { Button, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { ExtensionDetailCard } from '../ExtensionDetailCard/ExtensionDetailCard';
+import { ExtensionDetailCard } from './ExtensionDetailCard/ExtensionDetailCard';
 import styles from './ExtensionsDetailsList.module.scss';
+import { ExtensionsInstallDialog } from './ExtensionsInstallDialog/ExtensionsInstallDialog';
 
 export default function ExtensionsDetailsList({ extensionIds }) {
   const extensionsQueries = useExtensionByIdsQueries(extensionIds);
   const [selectedExtensionIds, setSelectedExtensionIds] = useState([]);
   const [showBar, setShowBar] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const isSelected = (extensionId) => selectedExtensionIds.find((id) => id === extensionId);
 
@@ -22,7 +24,7 @@ export default function ExtensionsDetailsList({ extensionIds }) {
   };
 
   const handleInstallClick = () => {
-    console.log('installing extensions', selectedExtensionIds);
+    setOpen(true);
   };
 
   useEffect(() => {
@@ -69,6 +71,7 @@ export default function ExtensionsDetailsList({ extensionIds }) {
           </Button>
         </Stack>
       )}
+      <ExtensionsInstallDialog open={open} handleClose={() => setOpen(false)} extensionIds={selectedExtensionIds} />
     </Stack>
   );
 }
