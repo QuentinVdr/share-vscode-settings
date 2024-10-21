@@ -1,5 +1,5 @@
-import { useVscodeConfigByIdQuery } from '@/hooks/reactQuery/queries/useVscodeConfigQueries';
 import ExtensionsDetailsList from '@components/extension/ExtensionsDetailsList/ExtensionsDetailsList';
+import { useVscodeConfigByIdQuery } from '@hooks/reactQuery/queries/useVscodeConfigQueries';
 import { CircularProgress, Stack, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
 
