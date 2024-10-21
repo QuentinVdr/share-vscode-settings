@@ -26,8 +26,18 @@
       border-radius: 4px;
     }
 
-    .cardSubtitle {
-      color: colors.$grey-text;
+    .titleContainer {
+      overflow: hidden;
+
+      .extensionName {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .cardSubtitle {
+        color: colors.$grey-text;
+      }
     }
   }
 

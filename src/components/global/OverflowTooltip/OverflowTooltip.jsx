@@ -7,7 +7,7 @@ import { cloneElement, useLayoutEffect, useRef, useState } from 'react';
  * @param title title of the tooltip
  * @param children JSX.Element to wrap with the tooltip
  */
-export default function OverflowTooltip({ title, children }) {
+export default function OverflowTooltip({ title, placement = 'top', children }) {
   const childRef = useRef(null);
   const [isOverflowing, setIsOverflowing] = useState(false);
 
@@ -28,7 +28,11 @@ export default function OverflowTooltip({ title, children }) {
   }, []);
 
   if (isOverflowing) {
-    return <Tooltip title={title}>{cloneElement(children, { ref: childRef })}</Tooltip>;
+    return (
+      <Tooltip title={title} placement={placement}>
+        {cloneElement(children, { ref: childRef })}
+      </Tooltip>
+    );
   }
 
   return cloneElement(children, { ref: childRef });
@@ -36,5 +40,19 @@ export default function OverflowTooltip({ title, children }) {
 
 OverflowTooltip.propTypes = {
   title: PropTypes.string.isRequired,
+  placement: PropTypes.oneOf([
+    'top',
+    'bottom-end',
+    'bottom-start',
+    'bottom',
+    'left-end',
+    'left-start',
+    'left',
+    'right-end',
+    'right-start',
+    'right',
+    'top-end',
+    'top-start'
+  ]),
   children: PropTypes.element.isRequired
 };
