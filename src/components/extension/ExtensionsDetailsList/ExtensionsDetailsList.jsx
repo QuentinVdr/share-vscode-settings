@@ -38,7 +38,21 @@ export default function ExtensionsDetailsList({ extensionIds }) {
 
   return (
     <Stack direction="column" gap={2}>
-      <Typography variant="h4">Click on extension card to select it</Typography>
+      <Stack direction="row" alignItems="center" gap={3}>
+        <Stack direction="column">
+          <Typography variant="h4">{extensionIds.length} Extensions</Typography>
+          <Typography variant="body1">Click on extension card to select it</Typography>
+        </Stack>
+        {extensionIds.length !== selectedExtensionIds.length ? (
+          <Button variant="outlined" onClick={() => setSelectedExtensionIds(extensionIds)}>
+            Select all
+          </Button>
+        ) : (
+          <Button variant="outlined" onClick={() => setSelectedExtensionIds([])}>
+            Unselect
+          </Button>
+        )}
+      </Stack>
       <Grid container spacing={2}>
         {extensionsQueries.map((query, index) => (
           <Grid
