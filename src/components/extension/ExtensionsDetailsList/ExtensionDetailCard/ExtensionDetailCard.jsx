@@ -1,3 +1,4 @@
+import OverflowTooltip from '@components/global/OverflowTooltip/OverflowTooltip';
 import ErrorIcon from '@mui/icons-material/Error';
 import { Button, Card, CardActions, CircularProgress, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
@@ -6,7 +7,7 @@ import { Link } from 'react-router-dom';
 import styles from './ExtensionDetailCard.module.scss';
 
 export const ExtensionDetailCard = ({ extensionId, extensionQuery, selected }) => {
-  const { data, isLoading, error } = extensionQuery;
+  const { data: extension, isLoading, error } = extensionQuery;
   const className = selected ? `${styles.card} ${styles.selected}` : styles.card;
 
   if (isLoading) {
@@ -36,16 +37,20 @@ export const ExtensionDetailCard = ({ extensionId, extensionQuery, selected }) =
     <Card className={className}>
       <Stack className={styles.cardContent} gap={2}>
         <Stack direction="row" gap={2} alignItems="center">
-          <img className={styles.cardLogo} src={data.imageSrc} alt={data.imageAlt} width={52} height={52} />
-          <Stack direction="column">
-            <Typography variant="h5">{data.name}</Typography>
+          <img className={styles.cardLogo} src={extension.imageSrc} alt={extension.imageAlt} width={52} height={52} />
+          <Stack className={styles.titleContainer} direction="column">
+            <OverflowTooltip title={extension.name}>
+              <Typography variant="h5" className={styles.extensionName}>
+                {extension.name}
+              </Typography>
+            </OverflowTooltip>
             <Typography className={styles.cardSubtitle} variant="subtitle1">
-              {data.publisher}
+              {extension.publisher}
             </Typography>
           </Stack>
         </Stack>
-        <Typography variant="body1" alignSelf="start">
-          {data.description}
+        <Typography className={styles.extensionDescription} variant="body1" alignSelf="start">
+          {extension.description}
         </Typography>
       </Stack>
       <CardActions>
