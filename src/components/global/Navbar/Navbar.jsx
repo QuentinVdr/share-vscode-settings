@@ -7,7 +7,7 @@ export default function Navbar() {
     <AppBar className={styles.navbar} position="sticky">
       <Stack direction="row" gap={2} alignItems="center">
         <Link to="/" className={styles.logo}>
-          <Typography variant="h1">Share vscode settings</Typography>
+          <Typography variant="h1">Share VSCode settings</Typography>
         </Link>
       </Stack>
     </AppBar>
