@@ -25,6 +25,7 @@ export default defineConfig({
   },
   preview: {
     host: 'share-vscode-settings.quentin-verdier.com',
+    allowedHosts: 'share-vscode-settings.quentin-verdier.com',
     cors: true,
     headers: {
       'Access-Control-Allow-Origin': '*'
