@@ -23,6 +23,13 @@ export default defineConfig({
       interval: 100 // Optional: adjust the polling interval (in milliseconds)
     }
   },
+  preview: {
+    host: 'share-vscode-settings.quentin-verdier.com',
+    cors: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
+  },
   resolve: {
     // Registering alias paths
     alias: {
